@@ -2,13 +2,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import EditScreenInfo from '../../components/EditScreenInfo';
 
 
-export default function TabTwoScreen() {
+export default function CartScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab 2</Text>
-      <Text className='text-red-500'>Tab 2</Text>
-      <View style={styles.separator} />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <Text style={styles.title}>Cart Screen</Text>
     </View>
   );
 }

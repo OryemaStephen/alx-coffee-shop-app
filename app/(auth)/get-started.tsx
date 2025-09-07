@@ -1,14 +1,14 @@
 import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import { useRouter } from "expo-router";
-import Button from "../components/ui/Button";
+import Button from "../../components/ui/Button";
 
-export default function Home() {
+export default function GetStarted() {
   const router = useRouter();
 
   return (
     <View className="flex-1 font-sora">
       <ImageBackground
-        source={require("../assets/images/onboarding.png")}
+        source={require("../../assets/images/onboarding.png")}
         className="flex-1 items-center justify-end"
         resizeMode="cover"
       >

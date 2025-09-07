@@ -6,23 +6,31 @@ export default function Splash() {
   const router = useRouter();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // check auth status here (replace with real logic)
-      const isLoggedIn = false;
-      if (isLoggedIn) {
-        router.replace("/(tabs)");
-      } else {
-        router.replace("/(auth)/login");
-      }
-    }, 1500);
+    const checkAuthStatus = async () => {
+      try {
+        const isLoggedIn = false;
 
-    return () => clearTimeout(timer);
-  }, []);
+        const timer = setTimeout(() => {
+          if (isLoggedIn) {
+            router.replace("/(tabs)");
+          } else {
+            router.replace("/");
+          }
+        }, 2000);
+
+        return () => clearTimeout(timer);
+      } catch (error) {
+        router.replace("/(auth)/get-started");
+      }
+    };
+
+    checkAuthStatus();
+  }, [router]);
 
   return (
     <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-2xl font-bold">My App</Text>
-      <ActivityIndicator size="large" className="mt-4" />
+      <Text className="text-2xl font-bold">My Coffee Shop</Text>
+      <ActivityIndicator size="large" color="#C67C4E" className="mt-4" />
     </View>
   );
 }
